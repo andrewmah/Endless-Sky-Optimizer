@@ -23,9 +23,9 @@ def get_opt_outfits(possible_outfits, cooling_ineff, heat_diss):
     """
     #for unaccessible outfits that are in the game files
     illegal_outfits = {
-        'Antimatter Core'
-        # 'Large Reactor Module',
-        # 'Small Reactor Module'
+        'Antimatter Core',
+        'Large Reactor Module',
+        'Small Reactor Module'
     }
 
     #puts any non illegal outfits with positive energy or cooling in a list
@@ -195,16 +195,16 @@ if __name__ == '__main__':
     #SHIP AND OUTFITS TO PRE-INSTALL
     ship_name = 'Aerie'
     pre_outfits = [
-		'Hyperdrive',
+	'Hyperdrive',
         'Jump Drive',
         'Wanderer Ramscoop',
         'Quantum Keystone',
-
-        'Quarg Skylance',
         'Quarg Skylance',
         'Point Defense Turret',
         'Nanotech Battery',
-        'Small Repair Module'
+        'Small Repair Module',
+        '"Biroo" Atomic Thruster',
+        '"Bondir" Atomic Steering'
     ]
 
     #single_search(ship_name, pre_outfits)
