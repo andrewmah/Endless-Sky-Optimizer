@@ -133,7 +133,6 @@ def single_search(ship_name, pre_outfits):
     """
     #install required outfits
     ship = all_ships[ship_name]
-    print(ship)
     for out in pre_outfits:
         ship.install_outfit(all_outfits[out])
 
