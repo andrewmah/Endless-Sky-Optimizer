@@ -123,7 +123,7 @@ def main_search(space, net_heat, cooling_ineff, heat_diss, possible_outfits, mem
 
 
 
-def single_search(ship_name, pre_outfits):
+def single_search(ship):
     """
     Args:
         -ship_name: (string) name of the model of ship to run the search on
@@ -131,11 +131,6 @@ def single_search(ship_name, pre_outfits):
                       before running the search
     Wrapper function for the main search. Displays the result nicely.
     """
-    #install required outfits
-    ship = all_ships[ship_name]
-    for out in pre_outfits:
-        ship.install_outfit(all_outfits[out])
-
     #prune unnecessary and dominated outfits from the search
     opt_outfits = get_opt_outfits(all_outfits, ship.inefficiency, ship.stats['heat_diss'])
     # print()
