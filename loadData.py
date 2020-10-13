@@ -253,6 +253,20 @@ def load_outfits():
 
 
 
+def load_input(all_ships, all_outfits):
+    file = open('input.txt', 'r')
+    flag = True
+    for line in file:
+        if flag:
+            ship = all_ships[line.strip()]
+            flag = False
+        else:
+            ship.install_outfit(all_outfits[line.strip()])
+    return ship
+
+
+
+
 if __name__ == '__main__':
     pass
     # test = load_ships()

@@ -154,7 +154,7 @@ def single_search(ship_name, pre_outfits):
     print(ship)
 
 
-def full_expansion_sweep(ship_name, pre_outfits):
+def full_expansion_sweep(ship):
     """
     Args:
         -ship_name: (string) name of the model of ship to run the search on
@@ -163,10 +163,6 @@ def full_expansion_sweep(ship_name, pre_outfits):
     Wrapper function for the main search. Does a search for every number of
     outfits expansions and displays the results for comparison.
     """
-    ship = all_ships[ship_name]
-    for out in pre_outfits:
-        ship.install_outfit(all_outfits[out])
-
     print('ORIGINAL SHIP')
     print(ship)
     print()
@@ -190,21 +186,11 @@ if __name__ == '__main__':
     #load ship and outfit data
     all_ships = loadData.load_ships()
     all_outfits = loadData.load_outfits()
+    ship = loadData.load_input(all_ships, all_outfits)
 
-    #SHIP AND OUTFITS TO PRE-INSTALL
-    ship_name = 'Aerie'
-    pre_outfits = [
-	'Hyperdrive',
-        'Jump Drive',
-        'Wanderer Ramscoop',
-        'Quantum Keystone',
-        'Quarg Skylance',
-        'Point Defense Turret',
-        'Nanotech Battery',
-        'Small Repair Module',
-        '"Biroo" Atomic Thruster',
-        '"Bondir" Atomic Steering'
-    ]
+    search_type = input('Type 1 or 2\n1) Try all possible numbers of outfits expansions\n2) Only use the outfits given in input.txt\n')
 
-    #single_search(ship_name, pre_outfits)
-    full_expansion_sweep(ship_name, pre_outfits)
+    if search_type == '1':
+        full_expansion_sweep(ship)
+    elif search_type == '2':
+        single_search(ship)
