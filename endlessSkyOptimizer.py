@@ -1,5 +1,6 @@
 import loadData
 import math
+import sys
 
 def round_heat(heat, amount=10):
     heat = heat / amount
@@ -21,12 +22,8 @@ def get_opt_outfits(possible_outfits, cooling_ineff, heat_diss):
     Cannot be an illegal outfit. Also prunes any outfits that are strictly
     dominated by two or fewer other outfits.
     """
-    #for unaccessible outfits that are in the game files
-    illegal_outfits = {
-        'Antimatter Core',
-        'Large Reactor Module',
-        'Small Reactor Module'
-    }
+
+    print(illegal_outfits)
 
     #puts any non illegal outfits with positive energy or cooling in a list
     opt_list = list()
@@ -181,7 +178,9 @@ if __name__ == '__main__':
     #load ship and outfit data
     all_ships = loadData.load_ships()
     all_outfits = loadData.load_outfits()
-    ship = loadData.load_input(all_ships, all_outfits)
+    illegal_outfits = loadData.load_illegal_outfits()
+    print(illegal_outfits)
+    ship = loadData.load_input(sys.argv[1], all_ships, all_outfits)
 
     search_type = input('Type 1 or 2\n1) Try all possible numbers of outfits expansions\n2) Only use the outfits given in input.txt\n')
 

@@ -67,9 +67,9 @@ class Ship(Item):
 
     def __repr__(self):
         ret = [self.name]
-        ret.append('    space: {}'.format(self.stats['space']))
-        ret.append('    energy: {}'.format(self.stats['energy']))
-        ret.append('    net_heat: {}'.format(self.net_ship_heat()))
+        ret.append('    Availible Space: {}'.format(self.stats['space']))
+        ret.append('    Min Energy Regen: {}'.format(self.stats['energy']))
+        ret.append('    Maximum Internal Heat: {}'.format(self.net_ship_heat()))
         return '\n'.join(ret)
 
 
@@ -253,8 +253,8 @@ def load_outfits():
 
 
 
-def load_input(all_ships, all_outfits):
-    file = open('input.txt', 'r')
+def load_input(input_file, all_ships, all_outfits):
+    file = open('inputs/{}'.format(input_file), 'r')
     flag = True
     for line in file:
         if flag:
@@ -263,6 +263,15 @@ def load_input(all_ships, all_outfits):
         else:
             ship.install_outfit(all_outfits[line.strip()])
     return ship
+
+
+def load_illegal_outfits():
+    illegal_outfits = set()
+    file = open('illegalOutfits.txt', 'r')
+    for line in file:
+        illegal_outfits.add(line.strip())
+    print(illegal_outfits)
+    return illegal_outfits
 
 
 
