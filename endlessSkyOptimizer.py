@@ -22,7 +22,6 @@ def get_opt_outfits(possible_outfits, cooling_ineff, heat_diss):
     Cannot be an illegal outfit. Also prunes any outfits that are strictly
     dominated by two or fewer other outfits.
     """
-
     print(illegal_outfits)
 
     #puts any non illegal outfits with positive energy or cooling in a list
@@ -130,11 +129,6 @@ def single_search(ship):
     """
     #prune unnecessary and dominated outfits from the search
     opt_outfits = get_opt_outfits(all_outfits, ship.inefficiency, ship.stats['heat_diss'])
-    # print()
-    # print('OPT OUTFITS')
-    # for name, k in opt_outfits.items():
-    #     print(name)
-    # print(len(opt_outfits))
 
     #run the search and display the result
     print(ship)
@@ -176,8 +170,7 @@ def full_expansion_sweep(ship):
 
 if __name__ == '__main__':
     #load ship and outfit data
-    all_ships = loadData.load_ships()
-    all_outfits = loadData.load_outfits()
+    all_outfits, all_ships = loadData.load_outfits_and_ships()
     illegal_outfits = loadData.load_illegal_outfits()
     print(illegal_outfits)
     ship = loadData.load_input(sys.argv[1], all_ships, all_outfits)
