@@ -22,7 +22,6 @@ def get_opt_outfits(possible_outfits, cooling_ineff, heat_diss):
     Cannot be an illegal outfit. Also prunes any outfits that are strictly
     dominated by two or fewer other outfits.
     """
-    print(illegal_outfits)
 
     #puts any non illegal outfits with positive energy or cooling in a list
     opt_list = list()
@@ -31,6 +30,7 @@ def get_opt_outfits(possible_outfits, cooling_ineff, heat_diss):
             name not in illegal_outfits):
             opt_list.append((name, outfit))
     opt_list.append((None, None))
+
 
     #put any non dominated items in a new dictionary
     opt_dict = dict()
@@ -127,8 +127,12 @@ def single_search(ship):
                       before running the search
     Wrapper function for the main search. Displays the result nicely.
     """
+    print('test')
+    print(ship)
     #prune unnecessary and dominated outfits from the search
     opt_outfits = get_opt_outfits(all_outfits, ship.inefficiency, ship.stats['heat_diss'])
+
+
 
     #run the search and display the result
     print(ship)
@@ -138,6 +142,7 @@ def single_search(ship):
     for out in outfits:
         ship.install_outfit(all_outfits[out])
     print(ship)
+    return [str(ship)]
 
 
 def full_expansion_sweep(ship):
@@ -149,6 +154,7 @@ def full_expansion_sweep(ship):
     Wrapper function for the main search. Does a search for every number of
     outfits expansions and displays the results for comparison.
     """
+    ship_list = list()
     print('ORIGINAL SHIP')
     print(ship)
     print()
@@ -158,26 +164,29 @@ def full_expansion_sweep(ship):
         energy, extra_space, outfits = main_search(ship.stats['space'], ship.net_ship_heat(), ship.inefficiency, ship.stats['heat_diss'], list(opt_outfits.items()), dict())
         for out in outfits:
             ship.install_outfit(all_outfits[out])
-        print('EXPANSIONS: {}'.format(ship.stats['expansions']))
+        print('EXPANSIONS: {}'.format(ship.inefficiency))
         print(ship)
+        ship_list.append(str(ship))
         print('Install: {}\n'.format(outfits))
         for out in outfits:
             ship.install_outfit(all_outfits[out], uninstall=True)
         ship.install_outfit(all_outfits['Outfits Expansion'])
+    return ship_list
 
 
 
 
 if __name__ == '__main__':
     #load ship and outfit data
-    all_outfits, all_ships = loadData.load_outfits_and_ships()
+    all_ships, all_outfits = loadData.load_outfits_and_ships()
     illegal_outfits = loadData.load_illegal_outfits()
-    print(illegal_outfits)
     ship = loadData.load_input(sys.argv[1], all_ships, all_outfits)
+
+    print(ship)
 
     search_type = input('Type 1 or 2\n1) Try all possible numbers of outfits expansions\n2) Only use the outfits given in input.txt\n')
 
     if search_type == '1':
-        full_expansion_sweep(ship)
+        loadData.save_output(sys.argv[1], full_expansion_sweep(ship))
     elif search_type == '2':
-        single_search(ship)
+        loadData.save_output(sys.argv[1], single_search(ship))

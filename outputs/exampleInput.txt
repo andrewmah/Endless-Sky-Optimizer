@@ -1,0 +1,61 @@
+Aerie
+    Availible Space: 6
+    Min Energy Regen: -1704
+    Maximum Internal Heat: -293
+    Outfits Expansions: 0
+    Availible Cargo Space: 50
+    Outfits Installed:
+        1 Hyperdrive
+        1 Jump Drive
+        1 Wanderer Ramscoop
+        1 Quantum Keystone
+        1 Quarg Skylance
+        1 Point Defense Turret
+        1 Nanotech Battery
+        1 Small Repair Module
+        1 "Biroo" Atomic Thruster
+        1 "Bondir" Atomic Steering
+        1 Yellow Sun Reactor
+        1 Cooling Ducts
+        1 Small Heat Shunt
+Aerie
+    Availible Space: 12
+    Min Energy Regen: -1560
+    Maximum Internal Heat: -103
+    Outfits Expansions: 1
+    Availible Cargo Space: 30
+    Outfits Installed:
+        1 Hyperdrive
+        1 Jump Drive
+        1 Wanderer Ramscoop
+        1 Quantum Keystone
+        1 Quarg Skylance
+        1 Point Defense Turret
+        1 Nanotech Battery
+        1 Small Repair Module
+        1 "Biroo" Atomic Thruster
+        1 "Bondir" Atomic Steering
+        1 Outfits Expansion
+        2 Small Reactor Module
+        1 Cooling Ducts
+        2 Small Heat Shunt
+Aerie
+    Availible Space: 11
+    Min Energy Regen: -1278
+    Maximum Internal Heat: -187
+    Outfits Expansions: 2
+    Availible Cargo Space: 10
+    Outfits Installed:
+        1 Hyperdrive
+        1 Jump Drive
+        1 Wanderer Ramscoop
+        1 Quantum Keystone
+        1 Quarg Skylance
+        1 Point Defense Turret
+        1 Nanotech Battery
+        1 Small Repair Module
+        1 "Biroo" Atomic Thruster
+        1 "Bondir" Atomic Steering
+        2 Outfits Expansion
+        1 Large Reactor Module
+        3 Small Heat Shunt
